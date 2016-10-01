@@ -76,9 +76,7 @@ class AuthenticationController extends Controller
     public function getRedirect()
     {
         return Socialite::driver('crest')->scopes([
-            'publicData',
-            'fleetRead',
-            'fleetWrite',
+            'publicData'
         ])->redirect();
     }
 

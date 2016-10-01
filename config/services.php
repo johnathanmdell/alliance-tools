@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'crest' => [
+        'client_id' => env('CREST_CLIENT_ID'),
+        'client_secret' => env('CREST_CLIENT_SECRET'),
+        'redirect' => env('CREST_REDIRECT')
+    ]
 ];

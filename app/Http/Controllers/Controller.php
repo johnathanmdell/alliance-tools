@@ -10,11 +10,5 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    /**
-     * @Get("/")
-     */
-    public function index()
-    {
-        return view('app');
-    }
+    //
 }

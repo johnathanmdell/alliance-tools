@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Alliance Tools')</title>
+    <title>@yield('title', 'Coalition Auth')</title>
     <link rel="stylesheet" href="{{ elixir("css/app.css") }}">
 </head>
 
@@ -15,16 +15,16 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="/" class="site_title"><i class="fa fa-wrench"></i> <span>Alliance Tools</span></a>
+                    <a href="/" class="site_title"><i class="fa fa-wrench"></i> <span>Coalition Auth</span></a>
                 </div>
                 <div class="clearfix"></div>
                 <div class="profile">
                     <div class="profile_pic">
-                        <img src="https://image.eveonline.com/Character/95623216_200.jpg" alt="..." class="img-circle profile_img">
+                        <img src="https://image.eveonline.com/Character/{{ auth()->user()->characters()->primary()->first()->id }}_128.jpg" class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>Furiosa Isu</h2>
+                        <h2>{{ auth()->user()->characters()->primary()->first()->name }}</h2>
                     </div>
                 </div>
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -35,10 +35,13 @@
                             <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
                             <li><a><i class="fa fa-database"></i> Services <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="#">Discord</a></li>
+                                    <li><a href="/discord">Discord</a></li>
+                                    <li><a href="#">Teamspeak</a></li>
                                 </ul>
                             </li>
+                            <!--
                             <li><a href="#"><i class="fa fa-users"></i> Groups</a></li>
+                            -->
                         </ul>
                     </div>
                 </div>
@@ -55,19 +58,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="https://image.eveonline.com/Character/95623216_200.jpg" alt="">Furiosa Isu
+                                <img src="https://image.eveonline.com/Character/{{ auth()->user()->characters()->primary()->first()->id }}_128.jpg" alt="">Furiosa Isu
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="javascript:;"> Profile</a></li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="badge bg-red pull-right">50%</span>
-                                        <span>Settings</span>
-                                    </a>
-                                </li>
-                                <li><a href="javascript:;">Help</a></li>
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                <li><a href="#"> Profile</a></li>
+                                <li><a href="/auth/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                             </ul>
                         </li>
 
@@ -98,7 +94,7 @@
 
         <footer>
             <div class="pull-right">
-                &copy; Alliance Tools
+                &copy; Black Sheep Coalition
             </div>
             <div class="clearfix"></div>
         </footer>

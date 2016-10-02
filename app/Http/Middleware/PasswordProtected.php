@@ -34,7 +34,7 @@ class PasswordProtected
     {
         if ($this->auth->check()) {
             if (empty($this->auth->user()->getAuthPassword())) {
-                return redirect()->route('_get_password');
+                return redirect()->route('_auth_get_password');
             }
         }
 

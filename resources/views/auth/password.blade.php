@@ -6,7 +6,7 @@
             <section class="login_content">
                 <img class="img-circle profile_img" src="https://image.eveonline.com/Character/{{ auth()->user()->characters()->primary()->first()->id }}_128.jpg" alt="EVE Character" style="margin: 0 auto; height: 125px; width: 125px;" />
                 <hr />
-                <form method="post" action="{{ route('_post_password') }}">
+                <form method="post" action="{{ route('_auth_post_password') }}">
                     {!! csrf_field() !!}
                     <h1>Account Protection</h1>
                     <div>
